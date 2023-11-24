@@ -17,6 +17,9 @@ import androidx.fragment.app.FragmentManager
 import com.newway.nwalert.databinding.FragmentNWAlertBinding
 
 
+interface NWAlertInterface {
+    fun onClickButton(button:NWButton)
+}
 class NWAlertFragment : DialogFragment() {
 
     companion object {
@@ -32,6 +35,7 @@ class NWAlertFragment : DialogFragment() {
     }
 
     private lateinit var binding: FragmentNWAlertBinding
+    var listener : NWAlertInterface? = null
 
     var options = NWOptions()
     var buttons: List<NWButton> = listOf()
@@ -96,6 +100,10 @@ class NWAlertFragment : DialogFragment() {
                 buttons.forEach { button ->
                     val btn = NWButtonView(ctx)
                     btn.setUpView(button = button,options = options)
+                    btn.setOnClickListener {
+                        hide()
+                        listener?.onClickButton(button)
+                    }
                     binding.linearContent.addView(btn)
                 }
             }
