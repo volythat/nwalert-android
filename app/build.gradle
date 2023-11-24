@@ -13,7 +13,7 @@ android {
         minSdk 23
         targetSdk 34
         versionCode 1
-        versionName "1.0.5"
+        versionName "1.0.6"
 
 //        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,8 +38,8 @@ afterEvaluate {
             // Creates a Maven publication called "release".
             release(MavenPublication) {
                 groupId = 'com.github.volythat'
-                artifactId = 'nwalert_android'
-                version = '1.0.5'
+                artifactId = 'nwalert'
+                version = '1.0.6'
             }
         }
     }
