@@ -13,7 +13,7 @@ android {
         minSdk 23
         targetSdk 34
         versionCode 1
-        versionName "1.0.8"
+        versionName "1.0.9"
 
 //        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +31,11 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    buildFeatures {
+        compose = true
+        viewBinding = true
+        buildConfig = true
+    }
 }
 afterEvaluate {
     publishing {
@@ -39,7 +44,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.volythat'
                 artifactId = 'nwalert-android'
-                version = '1.0.8'
+                version = '1.0.9'
             }
         }
     }
