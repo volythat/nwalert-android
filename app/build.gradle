@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace 'com.newway.nwalert'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.newway.nwalert"
         minSdk 23
-        targetSdk 34
+        targetSdk 33
         versionCode 1
-        versionName "1.0.9"
+        versionName "1.0.10"
 
 //        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,7 +44,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.volythat'
                 artifactId = 'nwalert-android'
-                version = '1.0.9'
+                version = '1.0.10'
             }
         }
     }
