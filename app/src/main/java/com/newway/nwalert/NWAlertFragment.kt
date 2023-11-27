@@ -82,7 +82,7 @@ class NWAlertFragment : DialogFragment() {
 
     private fun setUpView(){
         binding.lbTitle.text = title
-        binding.lbTitle.setTextColor(options.textColor)
+        binding.lbTitle.setTextColor(options.titleColor)
         binding.lbTitle.typeface = options.fontTitle
         binding.lbTitle.textSize = options.titleTextSize
 

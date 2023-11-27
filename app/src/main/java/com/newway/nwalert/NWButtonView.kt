@@ -38,8 +38,8 @@ class NWButtonView : AppCompatButton {
             setTextColor(options.colorTextButtonHighlight)
             gradientDrawable.setColor(options.colorButtonHighlight)
         }else{
-            setTextColor(options.colorButtonHighlight)
-            gradientDrawable.setColor(options.colorTextButtonHighlight)
+            setTextColor(options.textButtonColor)
+            gradientDrawable.setColor(options.buttonBackground)
         }
 
         gradientDrawable.setStroke(2,options.colorButtonHighlight)
