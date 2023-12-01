@@ -31,6 +31,7 @@ class NWButtonView : AppCompatButton {
         text = button.title
         textSize = options.buttonTextSize
         typeface = options.fontButton
+        isAllCaps = options.buttonAllCaps
 
         val gradientDrawable = GradientDrawable()
 

@@ -22,6 +22,7 @@ class NWOptions(
     var colorButtonHighlight : Int = Color.BLACK,
     var colorTextButtonHighlight : Int = Color.WHITE,
     var cornerButton : Float = 27f,
-    var heightButton : Float = 54f //dp
+    var heightButton : Float = 54f, //dp
+    var buttonAllCaps : Boolean = false
 ) {
 }
