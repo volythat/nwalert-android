@@ -24,7 +24,7 @@ class NWAlertFragment : DialogFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(buttons:List<NWButton>,title:String,message:String,options:NWOptions = NWOptions()) : NWAlertFragment {
+        fun newInstance(buttons:List<NWButton>,title:String,message:String?,options:NWOptions = NWOptions()) : NWAlertFragment {
             val dialog = NWAlertFragment()
             dialog.options = options
             dialog.buttons = buttons
@@ -40,7 +40,7 @@ class NWAlertFragment : DialogFragment() {
     var options = NWOptions()
     var buttons: List<NWButton> = listOf()
     var title : String = ""
-    var message : String = ""
+    var message : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
