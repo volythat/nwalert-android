@@ -24,7 +24,7 @@ class NWAlertFragment : DialogFragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(buttons:List<NWButton>,title:String,message:String?,options:NWOptions = NWOptions()) : NWAlertFragment {
+        fun newInstance(buttons:List<NWButton>,title:String,message:String? = null,options:NWOptions = NWOptions()) : NWAlertFragment {
             val dialog = NWAlertFragment()
             dialog.options = options
             dialog.buttons = buttons
