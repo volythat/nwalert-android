@@ -27,7 +27,7 @@ class NWOptions(
     var heightButton : Float = 54f, //dp
     var buttonAllCaps : Boolean = false,
     var imageTitle : Int = 0,
-    var imageHeight : Int = 150,
+    var imageHeight : Int = 0,
     var alignText : Int = View.TEXT_ALIGNMENT_TEXT_START
 ) {
 }

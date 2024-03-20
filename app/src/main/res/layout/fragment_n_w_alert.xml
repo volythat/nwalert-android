@@ -16,14 +16,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp">
-        <ImageView
-            android:id="@+id/imvPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:scaleType="fitCenter"
-            android:maxHeight="170dp"
-            android:paddingVertical="8dp"/>
         <TextView
             android:id="@+id/lbTitle"
             android:layout_width="match_parent"

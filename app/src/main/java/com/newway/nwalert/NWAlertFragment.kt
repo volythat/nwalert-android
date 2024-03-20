@@ -127,11 +127,11 @@ class NWAlertFragment : DialogFragment() {
                 LinearLayout.LayoutParams.WRAP_CONTENT, // Width
                 LinearLayout.LayoutParams.WRAP_CONTENT  // Height
             )
-            layoutParams.height = options.imageHeight
+            layoutParams.height = convertDpToPixel(options.imageHeight.toFloat()).toInt()
             layoutParams.topMargin = 8
             layoutParams.bottomMargin = 8
             imageView?.layoutParams = layoutParams
-            binding.linearContent.addView(imageView)
+            binding.linearContent.addView(imageView,0)
         }
     }
     private fun convertDpToPixel(dp: Float): Float {

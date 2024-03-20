@@ -42,8 +42,13 @@ class NWButtonView : AppCompatButton {
             setTextColor(options.textButtonColor)
             gradientDrawable.setColor(options.buttonBackground)
         }
-
-        gradientDrawable.setStroke(2,options.colorButtonHighlight)
+        if (button.image > 0) {
+            setCompoundDrawablesWithIntrinsicBounds(button.image, 0, 0, 0)
+            compoundDrawablePadding = 16
+        }
+        if (button.isShowStroke) {
+            gradientDrawable.setStroke(2, options.colorButtonHighlight)
+        }
         gradientDrawable.cornerRadius = convertDpToPixel(options.cornerButton)
 
         background = gradientDrawable
