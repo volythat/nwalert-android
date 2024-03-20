@@ -2,6 +2,8 @@ package com.newway.nwalert
 
 import android.graphics.Color
 import android.graphics.Typeface
+import android.text.Layout.Alignment
+import android.view.View
 
 class NWOptions(
     var marginContainer : Float = 30f, //dp
@@ -23,6 +25,9 @@ class NWOptions(
     var colorTextButtonHighlight : Int = Color.WHITE,
     var cornerButton : Float = 27f,
     var heightButton : Float = 54f, //dp
-    var buttonAllCaps : Boolean = false
+    var buttonAllCaps : Boolean = false,
+    var imageTitle : Int = 0,
+    var imageHeight : Int = 150,
+    var alignText : Int = View.TEXT_ALIGNMENT_TEXT_START
 ) {
 }

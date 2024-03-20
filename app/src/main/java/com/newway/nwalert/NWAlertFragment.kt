@@ -4,12 +4,15 @@ import android.app.Activity
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
+import android.text.Layout.Alignment
 import android.util.DisplayMetrics
 import android.view.Display
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.hardware.display.DisplayManagerCompat
 import androidx.fragment.app.DialogFragment
@@ -36,11 +39,13 @@ class NWAlertFragment : DialogFragment() {
 
     private lateinit var binding: FragmentNWAlertBinding
     var listener : NWAlertInterface? = null
+    private var imageView : ImageView? = null
 
     var options = NWOptions()
     var buttons: List<NWButton> = listOf()
     var title : String = ""
     var message : String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,11 +90,15 @@ class NWAlertFragment : DialogFragment() {
         binding.lbTitle.setTextColor(options.titleColor)
         binding.lbTitle.typeface = options.fontTitle
         binding.lbTitle.textSize = options.titleTextSize
+        binding.lbTitle.textAlignment = options.alignText
 
         binding.lbMessage.text = message
         binding.lbMessage.setTextColor(options.messageColor)
         binding.lbMessage.typeface = options.fontMessage
         binding.lbMessage.textSize = options.messageTextSize
+        binding.lbMessage.textAlignment = options.alignText
+
+        addImageView()
 
         binding.cardView.setCardBackgroundColor(options.backgroundColor)
         binding.cardView.radius = convertDpToPixel(options.cornerContainer)
@@ -109,7 +118,22 @@ class NWAlertFragment : DialogFragment() {
             }
         }
     }
-
+    private fun addImageView(){
+        if (options.imageTitle > 0 && imageView == null){
+            imageView = ImageView(context)
+            imageView?.setImageResource(options.imageTitle)
+            imageView?.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            val layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, // Width
+                LinearLayout.LayoutParams.WRAP_CONTENT  // Height
+            )
+            layoutParams.height = options.imageHeight
+            layoutParams.topMargin = 8
+            layoutParams.bottomMargin = 8
+            imageView?.layoutParams = layoutParams
+            binding.linearContent.addView(imageView)
+        }
+    }
     private fun convertDpToPixel(dp: Float): Float {
         return if (context != null) {
             val resources = requireContext().resources
