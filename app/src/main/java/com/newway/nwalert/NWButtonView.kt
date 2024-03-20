@@ -3,10 +3,14 @@ package com.newway.nwalert
 import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.GradientDrawable
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ImageSpan
 import android.util.AttributeSet
 import android.util.DisplayMetrics
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.core.content.ContextCompat
 
 class NWButtonView : AppCompatButton {
 
@@ -28,7 +32,11 @@ class NWButtonView : AppCompatButton {
     }
 
     fun setUpView(button:NWButton,options:NWOptions){
-        text = button.title
+        if (button.image > 0){
+            setTextImage(button.image,button.title)
+        }else {
+            text = button.title
+        }
         textSize = options.buttonTextSize
         typeface = options.fontButton
         isAllCaps = options.buttonAllCaps
@@ -41,10 +49,6 @@ class NWButtonView : AppCompatButton {
         }else{
             setTextColor(options.textButtonColor)
             gradientDrawable.setColor(options.buttonBackground)
-        }
-        if (button.image > 0) {
-            setCompoundDrawablesWithIntrinsicBounds(button.image, 0, 0, 0)
-            compoundDrawablePadding = 16
         }
         if (button.isShowStroke) {
             gradientDrawable.setStroke(2, options.colorButtonHighlight)
@@ -71,5 +75,13 @@ class NWButtonView : AppCompatButton {
             val metrics = Resources.getSystem().displayMetrics
             dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
         }
+    }
+    private fun setTextImage(image:Int,title:String){
+        val spannable = SpannableString(" [icon] $title")
+        val drawable = ContextCompat.getDrawable(context, image)
+        drawable?.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
+        val imageSpan = ImageSpan(drawable!!, ImageSpan.ALIGN_BOTTOM)
+        spannable.setSpan(imageSpan, 1, 7, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        text = spannable
     }
 }
