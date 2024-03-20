@@ -124,7 +124,7 @@ class NWAlertFragment : DialogFragment() {
             imageView?.setImageResource(options.imageTitle)
             imageView?.scaleType = ImageView.ScaleType.CENTER_INSIDE
             val layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT, // Width
+                LinearLayout.LayoutParams.MATCH_PARENT, // Width
                 LinearLayout.LayoutParams.WRAP_CONTENT  // Height
             )
             layoutParams.height = convertDpToPixel(options.imageHeight.toFloat()).toInt()
